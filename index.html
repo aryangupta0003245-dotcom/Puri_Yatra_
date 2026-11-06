@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puri Darshan • Sri Kshetra & Sankha Kshetra Digital Pilgrimage</title>
+  <meta name="description" content="Explore the sacred city of Puri: Sri Jagannath Temple, Mahaprabhu's Lila Sthalas (Gambhira, Siddha Bakula, Tota Gopinatha), Pancha Tirtha, 24-hour daily sevas, and Ananda Bazaar Mahaprasadam." />
+  <meta name="theme-color" content="#090D16" />
+
+  <!-- Google Fonts: Cinzel for Heritage Grandeur & Plus Jakarta Sans for Modern Readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Sacred Ticker Ribbon -->
+  <aside class="sacred-ticker" aria-label="Sacred notice">
+    <div class="ticker-left">
+      <span class="pulse-dot"></span>
+      <span><strong>Sri Kshetra Darshan</strong> • Marta Vaikuntha Dhama</span>
+    </div>
+    <div class="ticker-right">
+      <span id="currentTimeDisplay">Loading Puri Time...</span>
+      <button class="soundscape-toggle" id="soundscapeBtn" aria-label="Toggle temple ambient soundscape">
+        <div class="audio-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span>Temple Ambience</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header" id="mainHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo" aria-label="Puri Darshan Home">
+        <div class="chaka-logo" aria-hidden="true">
+          <!-- Stylized Chaka Akhi / Sudarshana Wheel SVG Icon -->
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="#FFFFFF" stroke-width="2"></circle>
+            <circle cx="12" cy="12" r="3.5" fill="#FFFFFF"></circle>
+            <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="#FFFFFF" stroke-width="1.5"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>PURI DARSHAN <span>ଶ୍ରୀକ୍ଷେତ୍ର</span></h1>
+          <div class="brand-sub">The Divine Abode of Lord Jagannath</div>
+        </div>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
+        <a href="#sankha-map" class="nav-link">Sankha Kshetra</a>
+        <a href="#directory" class="nav-link">Holy Places</a>
+        <a href="#daily-sevas" class="nav-link">Dina Seva</a>
+        <a href="#mahaprasad" class="nav-link">Mahaprasad</a>
+        <a href="#festivals" class="nav-link">Festivals</a>
+        <a href="#itineraries" class="nav-link">Yatra Routes</a>
+        <a href="#faq" class="nav-link">Pilgrim Guide</a>
+      </nav>
+
+      <!-- Yatra Cart / Bookmark Button -->
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <button class="yatra-cart-btn" id="openYatraBtn" aria-label="View Saved Yatra">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>My Yatra</span>
+          <span class="cart-count" id="yatraCountBadge">0</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-backdrop"></div>
+      <div class="hero-overlay-glow"></div>
+
+      <div class="container hero-content">
+        <div class="sacred-pill">
+          <span>✦</span>
+          <span>Sri Purusottama Kshetra • Jagannatha Puri</span>
+          <span>✦</span>
+        </div>
+
+        <h2 class="hero-title">
+          Journey into the Heart of <span class="highlight-gold">Sankha Kshetra</span> & <span class="highlight-red">Caitanya Lila</span>
+        </h2>
+
+        <p class="hero-desc">
+          An immersive, responsive digital pilgrimage across the sacred holy land of Lord Jagannatha — discover 18 transcendent pastime sites, live 24-hour temple sevas, sacred waters, and the eternal grace of Ananda Bazaar Mahaprasadam.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#sankha-map" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+            Explore Interactive Map
+          </a>
+          <a href="#directory" class="btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            Browse 18 Holy Sites
+          </a>
+        </div>
+
+        <!-- Quick Stats Grid -->
+        <div class="hero-stats-bar">
+          <div class="stat-item">
+            <div class="stat-num">18+</div>
+            <div class="stat-label">Sacred Sites</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Daily Sevas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">56</div>
+            <div class="stat-label">Chhappan Bhog</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">10M+</div>
+            <div class="stat-label">Annual Pilgrims</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">1,000+</div>
+            <div class="stat-label">Years of Seva</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-Time Dina Seva Status Ribbon -->
+    <section class="live-seva-banner" aria-label="Real-time seva tracker">
+      <div class="container seva-banner-inner">
+        <div class="seva-current-info">
+          <span class="live-beacon">● Live Seva</span>
+          <div class="seva-details-text">
+            <h4 id="activeSevaTitle">Calculating current ritual...</h4>
+            <p id="activeSevaTime">Synchronized with Puri Temple Time</p>
+          </div>
+        </div>
+        <a href="#daily-sevas" class="btn-secondary" style="padding: 0.45rem 1.1rem; font-size: 0.82rem;">
+          View Full 24-Hr Schedule →
+        </a>
+      </div>
+    </section>
+
+    <!-- Interactive Sankha Kshetra Conch Map Section -->
+    <section class="sankha-map-section" id="sankha-map">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Sacred Geography of Puri</span>
+          <h2 class="section-title">The Geometry of Sankha Kshetra</h2>
+          <p class="section-subtitle">
+            According to the Skanda Purana, the sacred geography of Puri is laid out in the mystical shape of a right-blowing conch shell (Sankha). Explore the concentric zones extending from the apex at Sri Mandir down to the shores of Mahodadhi.
+          </p>
+        </header>
+
+        <div class="map-wrapper-card">
+          <div class="map-toolbar">
+            <div class="map-legend">
+              <div class="legend-item">
+                <span class="legend-dot dot-center"></span>
+                <span>Sri Mandir / Core</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-caitanya"></span>
+                <span>Mahaprabhu Lila</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-waters"></span>
+                <span>Pancha Tirtha Waters</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-mathas"></span>
+                <span>Ancient Mathas & Deities</span>
+              </div>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--color-gold-400); font-weight: 500;">
+              💡 Hover on markers for preview • Click to view full history
+            </span>
+          </div>
+
+          <div class="sankha-svg-container" id="sankhaSvgWrapper">
+            <!-- Dynamic SVG injected via app.js -->
+          </div>
+
+          <!-- Tooltip Container for SVG -->
+          <div class="map-tooltip-box" id="mapTooltip"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Holy Places Directory & Filterable Grid (Inspired by srimayapurdhama.com/gaura-mandala) -->
+    <section class="directory-section" id="directory">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Pilgrim Directory</span>
+          <h2 class="section-title">Sacred Destinations of Puri Dhama</h2>
+          <p class="section-subtitle">
+            Dive into the pastimes of Sri Caitanya Mahaprabhu, visit ancient water bodies sanctified by sages, and prepare your heart for unforgettable spiritual moments.
+          </p>
+        </header>
+
+        <!-- Search & Filter Controls -->
+        <div class="filter-bar-container">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search by name, deity, pastime, or landmark (e.g. Gambhira, Bakula, Gundicha)..." aria-label="Search holy places" />
+          </div>
+
+          <div class="category-tabs" id="categoryTabs">
+            <!-- Dynamic category buttons injected via app.js -->
+          </div>
+
+          <div style="text-align: center; font-size: 0.85rem; color: var(--color-text-muted);" id="resultsCount">
+            Showing sacred places...
+          </div>
+        </div>
+
+        <!-- Places Card Grid -->
+        <div class="places-grid" id="placesGrid">
+          <!-- Dynamic place cards injected via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 24-Hour Dina Seva Schedule Section -->
+    <section class="seva-schedule-section" id="daily-sevas">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Temple Rituals</span>
+          <h2 class="section-title">The 24-Hour Dina Seva of Lord Jagannatha</h2>
+          <p class="section-subtitle">
+            At Puri, Lord Jagannatha is worshipped as a living supreme monarch. Follow His divine daily routine—from the morning opening of the doors to the evening flower decorations and midnight rest.
+          </p>
+        </header>
+
+        <div class="seva-timeline" id="sevaTimeline">
+          <!-- Daily seva cards injected via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Mahaprasadam & Ananda Bazaar Section -->
+    <section class="mahaprasad-section" id="mahaprasad">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Ananda Bazaar & Chhappan Bhog</span>
+          <h2 class="section-title">The Divine Nectar of Mahaprasadam</h2>
+          <p class="section-subtitle">
+            Known as the 'Market of Spiritual Joy', Ananda Bazaar is the largest open-air consecrated food market on earth. Discover how food is elevated to transcendental mercy.
+          </p>
+        </header>
+
+        <!-- Mahaprasad Hero & Cooking Mysteries -->
+        <div class="mahaprasad-hero-box">
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-gold-300); margin-bottom: 0.5rem;">
+            The Mystery of the Rosha Ghara (Temple Kitchen)
+          </h3>
+          <p style="color: #E5E7EB; line-height: 1.7; font-size: 1.05rem;">
+            Inside the kitchen of Lord Jagannath, 240 traditional earthen hearths are tended by hundreds of dedicated Sevakas. Seven earthen pots are stacked directly on top of each other over a single wood fire—miraculously, the topmost pot cooks first! No food is ever smelled or tasted beforehand, for Goddess Lakshmi is believed to cook secretly in invisible form.
+          </p>
+
+          <div class="cooking-mystery-grid">
+            <div class="mystery-item">
+              <h5>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                No Caste Distinctions
+              </h5>
+              <p>People of every social background sit side-by-side on the ground to honor Mahaprasada from the same pot.</p>
+            </div>
+            <div class="mystery-item">
+              <h5>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                Bimala Devi Prasada
+              </h5>
+              <p>Food offered to Lord Jagannath becomes 'Mahaprasada' only after it is subsequently offered to Goddess Vimala.</p>
+            </div>
+            <div class="mystery-item">
+              <h5>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                Nirmalya Potency
+              </h5>
+              <p>Sun-dried rice grains of Mahaprasad (Nirmalya) retain eternal purity and can be preserved for years in one's home altar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chhappan Bhog Interactive Explorer -->
+        <div class="bhog-filter-buttons" id="bhogFilters">
+          <!-- Injected via app.js -->
+        </div>
+
+        <div class="bhog-items-grid" id="bhogGrid">
+          <!-- Injected via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Annual Festivals Section -->
+    <section class="festivals-section" id="festivals">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Utkala Parva</span>
+          <h2 class="section-title">Grand Festivals of Sri Kshetra</h2>
+          <p class="section-subtitle">
+            From the world-renowned Ratha Yatra to the serene summer waters of Chandana Yatra, celebrate the timeless festivities of the Lord of the Universe.
+          </p>
+        </header>
+
+        <div class="festivals-grid">
+          <!-- Static representation rendered from PURI_DATA.festivals -->
+          <article class="festival-card">
+            <span class="festival-timing-badge">Asadha Sukla Dwitiya (June / July)</span>
+            <h3 class="festival-title">Sri Ratha Yatra (Car Festival)</h3>
+            <div class="festival-odia-title">ଶ୍ରୀ ରଥଯାତ୍ରା</div>
+            <p class="festival-summary">
+              The supreme public manifestation of divine mercy. Millions converge on Bada Danda to pull the celestial chariots Nandighosa, Taladhwaja, and Darpadalana towards Gundicha Temple.
+            </p>
+            <div class="festival-details">
+              <strong>Spiritual Core:</strong> Lord Jagannatha leaves His opulent palace to be reunited with the devotees in the mood of Vrindavana, granting darshan to all humanity without barrier.
+            </div>
+          </article>
+
+          <article class="festival-card">
+            <span class="festival-timing-badge">Jyeshtha Purnima (May / June)</span>
+            <h3 class="festival-title">Snana Yatra (Divine Bath)</h3>
+            <div class="festival-odia-title">ସ୍ନାନ ଯାତ୍ରା</div>
+            <p class="festival-summary">
+              The appearance day bathing ceremony where the deities receive 108 golden pots of herb-infused water on the Snana Vedi, followed by the Gajanana (elephant) Besha.
+            </p>
+            <div class="festival-details">
+              <strong>Spiritual Core:</strong> After this grand public bath, the Lords catch a divine cold and enter the 15-day seclusion period of Anavasara.
+            </div>
+          </article>
+
+          <article class="festival-card">
+            <span class="festival-timing-badge">Akshaya Tritiya (April / May)</span>
+            <h3 class="festival-title">Chandana Yatra (42-Day Festival)</h3>
+            <div class="festival-odia-title">ଚନ୍ଦନ ଯାତ୍ରା</div>
+            <p class="festival-summary">
+              The longest festival in Puri. Deities are covered in cooling sandalwood paste and cruise Narendra Sarovara on swan-shaped boats every evening for 21 days.
+            </p>
+            <div class="festival-details">
+              <strong>Spiritual Core:</strong> Coincides with the commencement of chariot construction for the upcoming Ratha Yatra.
+            </div>
+          </article>
+
+          <article class="festival-card">
+            <span class="festival-timing-badge">Asadha Sukla Ekadasi</span>
+            <h3 class="festival-title">Suna Besha (Golden Adornment)</h3>
+            <div class="festival-odia-title">ସୁନା ବେଶ</div>
+            <p class="festival-summary">
+              Following the return journey (Bahuda Yatra), the deities are adorned with over 208 kilograms of solid gold hands, crowns, and jewels while resting atop Their chariots.
+            </p>
+            <div class="festival-details">
+              <strong>Spiritual Core:</strong> Commemorates King Kapilendra Deva surrendering all his royal treasury at the feet of Lord Jagannatha.
+            </div>
+          </article>
+
+          <article class="festival-card">
+            <span class="festival-timing-badge">Month of Kartika (Oct / Nov)</span>
+            <h3 class="festival-title">Kartika Niyama Seva & Panchaka</h3>
+            <div class="festival-odia-title">କାର୍ତ୍ତିକ ବ୍ରତ</div>
+            <p class="festival-summary">
+              The holy month of Damodara when thousands of devotees observe month-long austerities. In the final five days, the deities appear in five magnificent Beshas.
+            </p>
+            <div class="festival-details">
+              <strong>Spiritual Core:</strong> Any devotional service performed during Kartika in Purusottama Kshetra yields thousands of times more spiritual fruit.
+            </div>
+          </article>
+
+          <article class="festival-card">
+            <span class="festival-timing-badge">Fortnight before Ratha Yatra</span>
+            <h3 class="festival-title">Anavasara & Alarnath Yatra</h3>
+            <div class="festival-odia-title">ଅଣବସର</div>
+            <p class="festival-summary">
+              While the Sri Mandir doors are closed for divine healing treatments, pilgrims travel to Sri Alarnath Temple in Brahmagiri where the Lord grants darshan in four-armed form.
+            </p>
+            <div class="festival-details">
+              <strong>Spiritual Core:</strong> Mahaprabhu walked daily to Alarnath, weeping in divine love until the stone melted under His chest.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Itineraries Section -->
+    <section class="itinerary-section" id="itineraries">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Pilgrim Routes</span>
+          <h2 class="section-title">Curated Parikrama Itineraries</h2>
+          <p class="section-subtitle">
+            Whether you have only a single day or a long weekend, these thoughtfully designed circuits optimize your time for smooth darshan, minimal walking fatigue, and maximum spiritual absorption.
+          </p>
+        </header>
+
+        <div class="itinerary-tabs" id="itineraryTabs">
+          <!-- Injected via app.js -->
+        </div>
+
+        <div class="itinerary-display-card" id="itineraryDisplay">
+          <!-- Injected via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs & Practical Pilgrim Guide -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Essential Guidance</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Essential guidelines for dress codes, sanctum protocols, foreign tourist access, obtaining Mahaprasad, and travel logistics in Puri.
+          </p>
+        </header>
+
+        <div class="faq-container" id="faqContainer">
+          <!-- Injected via app.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Holy Place Details Modal / Slide Drawer -->
+  <div class="modal-overlay" id="placeModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog" id="placeModalContent">
+      <!-- Injected via app.js openPlaceModal() -->
+    </div>
+  </div>
+
+  <!-- My Saved Yatra Slide Drawer -->
+  <aside class="yatra-drawer" id="yatraDrawer" aria-label="My Saved Pilgrimage Itinerary">
+    <div class="drawer-header">
+      <h3>My Pilgrimage Checklist</h3>
+      <button class="remove-saved-btn" id="closeYatraBtn" aria-label="Close Yatra Drawer">✕</button>
+    </div>
+    <div class="drawer-body" id="yatraList">
+      <!-- Injected via app.js updateYatraUI() -->
+    </div>
+    <div class="drawer-footer">
+      <button class="btn-primary" id="printYatraBtn" style="justify-content: center; width: 100%;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Print / Save Yatra Checklist
+      </button>
+      <button class="btn-secondary" id="clearYatraBtn" style="justify-content: center; width: 100%; border-color: rgba(239, 68, 68, 0.4); color: #FCA5A5;">
+        Clear All Saved Sites
+      </button>
+    </div>
+  </aside>
+
+  <!-- Modern Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+            <div class="chaka-logo" style="width: 36px; height: 36px;">
+              <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="#FFFFFF" stroke-width="2"></circle>
+                <circle cx="12" cy="12" r="3.5" fill="#FFFFFF"></circle>
+              </svg>
+            </div>
+            <h4 style="margin-bottom: 0;">Puri Darshan</h4>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1rem;">
+            A responsive, modern digital guide to the holy pilgrimage city of Sri Jagannatha Puri Dhama. Dedicated to pilgrims, devotees, and travelers worldwide.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--color-gold-400); font-style: italic;">
+            "Hare Krishna Hare Krishna Krishna Krishna Hare Hare • Hare Rama Hare Rama Rama Rama Hare Hare"
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Core Sanctum</h4>
+          <ul class="footer-links">
+            <li><a href="#directory">Sri Jagannath Temple</a></li>
+            <li><a href="#daily-sevas">Daily 24-Hr Dina Seva</a></li>
+            <li><a href="#mahaprasad">Ananda Bazaar & 56 Bhog</a></li>
+            <li><a href="#festivals">Ratha Yatra Schedule</a></li>
+            <li><a href="#sankha-map">Sankha Kshetra Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Mahaprabhu Lila Sthalas</h4>
+          <ul class="footer-links">
+            <li><a href="#directory">Gambhira (Radha-Kanta Matha)</a></li>
+            <li><a href="#directory">Siddha Bakula (Haridasa Kutir)</a></li>
+            <li><a href="#directory">Tota Gopinatha Mandir</a></li>
+            <li><a href="#directory">Sarvabhauma Bhattacharya Home</a></li>
+            <li><a href="#directory">Srila Haridasa Samadhi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pancha Tirthas & Beyond</h4>
+          <ul class="footer-links">
+            <li><a href="#directory">Markandeya Sarovara</a></li>
+            <li><a href="#directory">Rohini Kunda & Bhusandi Kaka</a></li>
+            <li><a href="#directory">Indradyumna Sarovara</a></li>
+            <li><a href="#directory">Sweta Ganga Kunda</a></li>
+            <li><a href="#directory">Mahodadhi (Swargadwar Beach)</a></li>
+            <li><a href="#directory">Sri Alarnath (Brahmagiri)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          Created for Sri Kshetra Puri Pilgrims • Inspired by Sri Mayapur Dhama Gaura-Mandala digital architecture • All glory to Sri Sri Jagannatha, Balabhadra, Subhadra & Sudarshana Chakra!
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
